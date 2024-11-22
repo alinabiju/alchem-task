@@ -1,17 +1,25 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ObjectlistComponent } from './components/objectlist/objectlist.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, ObjectlistComponent, HeaderComponent],
   template: `
-    <h1>Welcome to {{title}}!</h1>
-
-    <router-outlet />
+    <app-header />
+    <main>
+      <app-objectlist />
+    </main>
   `,
-  styles: [],
+  styles: [
+    `
+    main{
+      padding:16px;
+    }`
+  ],
 })
 export class AppComponent {
-  title = 'first-ng-app';
+  title = 'Library Manager';
 }
